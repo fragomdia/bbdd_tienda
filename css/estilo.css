@@ -1,0 +1,99 @@
+/*elementos comunes*/
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+/*index.php*/
+fieldset {
+    width: max-content;
+    margin: 50px auto;
+    border: 3px solid gray;
+    background-color: lightgray;
+}
+div {
+    width: 100%;
+    margin: 25px 0;
+    display: flex;
+    justify-content: start;
+}
+input {
+    border-radius: 5px;
+    outline: none;
+}
+label {
+    margin-right: 5px;
+}
+a {
+    margin-left: 5px;
+    color: blue;
+    text-decoration: none;
+}
+a:visited {
+    color: blue;
+}
+.boton input {
+    padding: 5px;
+}
+/*sunindex.php*/
+.portada {
+    background-color: rgb(125, 125, 222);
+    color: black;
+    border: 1px solid black;
+    width: 100%;
+    margin: 0;
+    padding: 1rem 1rem;
+}
+.todo {
+    margin: 0;
+}
+.productos {
+    background-color: lightgray;
+    width: 70%;
+    margin: 0;
+}
+.cesta {
+    background-color: rgb(103, 165, 103);
+    width: 30%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+}
+.cesta img {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-left: .25rem;
+}
+.cesta h3 {
+    margin-left: .5rem;
+}
+.carrito {
+    border-bottom: 1px solid rgb(104, 103, 103);
+    padding: 1rem;
+    margin: 0;
+}
+.botones {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding-top: .5rem;
+    padding-left: .25rem;
+}
+.botones button {
+    width: max-content;
+    padding: .1rem;
+    margin-bottom: .5rem;
+}
+.producto {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+.producto div {
+    margin: 0;
+    padding: .5rem 0;
+}
+.producto div button {
+    margin: 0 0.5rem;
+}
