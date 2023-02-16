@@ -1,17 +1,30 @@
 <?php
-session_start();
 include_once("include/bbddGestion.php");
-$_SESSION['lista'] = array();
+session_start();
+if (!isset($_SESSION['lista'])) {
+    $_SESSION['lista'] = array();
+}
 if (!isset($_SESSION['usuario'])) {
     die("<link rel='stylesheet' href='css/estilo.css'><div class='overlay'></div><div  class='error'>Error - debe <a href='index.php'>identificarse</a></div>");
 }
 if (isset($_POST['exit'])) {
     session_unset();
+    unset($_SESSION['usuario']);
     header("Location: index.php");
 }
 if (isset($_POST['annadir'])) {
     $producto = $_POST['codigo'] . " | " . $_POST['nombre'] . " | " . $_POST['precio'];
-    array_push($_SESSION['lista'], $producto);
+    if (!in_array($producto, $_SESSION['lista'])) {
+        array_push($_SESSION['lista'], $producto);
+    }
+}
+if (isset($_POST['vaciar'])) {
+    unset($_SESSION['lista']);
+}
+if (isset($_POST['comprar'])) {
+    unset($_SESSION['usuario']);
+    header("Location: ticket.php");
+    //die("<link rel='stylesheet' href='css/estilo.css'><div class='overlay'></div><div  class='error'>Gracias por su compra " . $_SESSION['usuario'] . "<a href='index.php'>Volver a iniciar sesión</a></div>");
 }
 ?>
 <!DOCTYPE html>
@@ -58,12 +71,16 @@ if (isset($_POST['annadir'])) {
             </div>
             <div class="botones">
                 <?php
-                    foreach ($_SESSION['lista'] as $value) {
-                        echo $value;
+                    if (isset($_SESSION['lista'])) {
+                        foreach ($_SESSION['lista'] as $value) {
+                            echo $value . "</br>";
+                        }
                     }
                 ?>
-                <button>Vaciar cesta</button>
-                <button>Comprar</button>
+                <form action="indexCesta.php" method="post">
+                    <button type="submit" name="vaciar">Vaciar cesta</button>
+                    <button type="submit" name="comprar">Comprar</button>
+                </form>
             </div>
         </div>
     </div>
