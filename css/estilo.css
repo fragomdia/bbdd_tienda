@@ -48,19 +48,19 @@ legend {
     border: 1px solid black;
     width: 100%;
     margin: 0;
-    padding: 1rem 1rem;
+    padding: 1rem;
 }
 .todo {
     margin: 0;
 }
 .productos {
     background-color: lightgray;
-    width: 70%;
+    width: 60%;
     margin: 0;
 }
 .cesta {
     background-color: rgb(103, 165, 103);
-    width: 30%;
+    width: 40%;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -103,6 +103,51 @@ legend {
     margin: 0;
     padding: .5rem 0;
 }
-.producto div button {
-    margin: 0 0.5rem;
+.producto div form {
+    margin: 0;
+    padding: 0;
+}
+.boton {
+    padding: .1rem .2rem;
+    margin-right: .2rem;
+}
+.footer {
+    background-color: rgb(125, 125, 222);
+    color: black;
+    border: 1px solid black;
+    width: 100%;
+    margin: 0;
+    padding: .25rem;
+}
+.footer button {
+    padding: .5rem 1.5rem;
+}
+.footer button a {
+    text-decoration: none;
+    color: black;
+}
+.footer button a:hover {
+    color: black;
+}
+/*errores*/
+.overlay {
+    position: absolute;
+    background-color: black;
+    opacity: .6;
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+.error {
+    width: max-content;
+    margin: 0 auto;
+    border: 5px red ridge;
+    position: absolute;
+    top: 20%;
+    left: 0;
+    right: 0;
+    padding: 3rem;
+    background-color: lightgray;
+    font-size: x-large;
 }

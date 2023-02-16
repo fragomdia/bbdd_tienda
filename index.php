@@ -5,6 +5,7 @@ include_once("include/bbddGestion.php");
 if(isset($_POST['enviar'])) {
     $nombre = $_POST['user'];
     $password = $_POST['password'];
+    error_reporting(0);
     if (empty($nombre) || empty($password)) 
             $error = "*Debes introducir un nombre de usuario y una contraseña";
     else {
@@ -13,7 +14,7 @@ if(isset($_POST['enviar'])) {
             if ($nombre == $usuario->getNombreUsuario() && MD5($password) == $usuario->getPasswordUsuario()) {
                 session_start();
                 $_SESSION['usuario'] = $nombre;
-                header("Location: subIndex.php");
+                header("Location: indexCesta.php");
             } else {
                 $error = "**Usuario inexistente o incorrecto";
             }
