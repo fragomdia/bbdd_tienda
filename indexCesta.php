@@ -3,6 +3,7 @@ include_once("include/bbddGestion.php");
 session_start();
 if (!isset($_SESSION['lista'])) {
     $_SESSION['lista'] = array();
+    $_SESSION['listaUnidades'] = array();
 }
 if (!isset($_SESSION['usuario'])) {
     die("<link rel='stylesheet' href='css/estilo.css'><div class='overlay'></div><div  class='error'>Error - debe <a href='index.php'>identificarse</a></div>");
@@ -16,9 +17,15 @@ if (isset($_POST['annadir'])) {
     if (!in_array($producto, $_SESSION['lista'])) {
         array_push($_SESSION['lista'], $producto);
     }
+    if (!isset($_SESSION['listaUnidades'][$_POST['codigo']])) {
+        $_SESSION['listaUnidades'][$_POST['codigo']] = 1;
+    } else {
+        $_SESSION['listaUnidades'][$_POST['codigo']]++;
+    }
 }
 if (isset($_POST['vaciar'])) {
     unset($_SESSION['lista']);
+    unset($_SESSION['listaUnidades']);
 }
 if (isset($_POST['comprar'])) {
     header("Location: ticket.php");
@@ -70,7 +77,8 @@ if (isset($_POST['comprar'])) {
                 <?php
                     if (isset($_SESSION['lista'])) {
                         foreach ($_SESSION['lista'] as $value) {
-                            echo $value . "</br>";
+                            $code = explode(" | ", $value)[0];
+                            echo $value . " | Uds: " . $_SESSION['listaUnidades'][$code] . "</br>";
                         }
                     }
                 ?>
