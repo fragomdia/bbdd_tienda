@@ -6,7 +6,7 @@ class GestionBBDD {
 
     public static function realizarConexion() {   
         try {
-            $conexion = new PDO("mysql:host=localhost; dbname=dwes","root","");
+            $conexion = new PDO("mysql:host=localhost; dbname=dwes","root","123456");
             $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $conexion->exec("SET CHARACTER SET utf8");
             return $conexion;

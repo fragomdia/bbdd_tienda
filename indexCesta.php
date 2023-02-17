@@ -9,7 +9,6 @@ if (!isset($_SESSION['usuario'])) {
 }
 if (isset($_POST['exit'])) {
     session_unset();
-    unset($_SESSION['usuario']);
     header("Location: index.php");
 }
 if (isset($_POST['annadir'])) {
@@ -22,9 +21,7 @@ if (isset($_POST['vaciar'])) {
     unset($_SESSION['lista']);
 }
 if (isset($_POST['comprar'])) {
-    unset($_SESSION['usuario']);
     header("Location: ticket.php");
-    //die("<link rel='stylesheet' href='css/estilo.css'><div class='overlay'></div><div  class='error'>Gracias por su compra " . $_SESSION['usuario'] . "<a href='index.php'>Volver a iniciar sesión</a></div>");
 }
 ?>
 <!DOCTYPE html>

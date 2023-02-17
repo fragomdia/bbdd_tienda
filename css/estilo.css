@@ -142,13 +142,58 @@ legend {
 }
 .error {
     width: max-content;
-    margin: 0 auto;
+    margin: 2rem auto;
     border: 5px red ridge;
-    position: absolute;
+    position: relative;
     top: 20%;
     left: 0;
     right: 0;
     padding: 3rem;
     background-color: lightgray;
     font-size: x-large;
+}
+/*factura*/
+.ticket {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: max-content;
+    margin: 3rem auto;
+    padding: 2rem;
+    border: 1px solid gray;
+    background-color: lightgray;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+}
+.info {
+    display: flex;
+    flex-direction: column;
+}
+h3, h5 {
+    padding-bottom: .5rem;
+}
+.total {
+    border-top: 2px black dotted;
+    padding-top: 1rem;
+    display: flex;
+    justify-content: end;
+    margin: 0;
+}
+.product {
+    display: flex;
+    flex-direction: column;
+}
+.product div {
+    margin: 0;
+    padding: 1rem 0;
+    border-bottom: 1px solid black;
+}
+.product div:last-child {
+    border: none;
+}
+.pagar button {
+    padding: .5rem 1rem;
+    background-color: rgb(132, 132, 218);
+    border-radius: 20px;
 }
