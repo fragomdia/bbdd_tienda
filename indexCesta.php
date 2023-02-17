@@ -1,6 +1,6 @@
 <?php
-session_start();
 include_once("include/bbddGestion.php");
+session_start();
 $_SESSION['lista'] = array();
 if (!isset($_SESSION['usuario'])) {
     die("<link rel='stylesheet' href='css/estilo.css'><div class='overlay'></div><div  class='error'>Error - debe <a href='index.php'>identificarse</a></div>");
