@@ -1,7 +1,12 @@
 <?php 
 session_start();
 if (isset($_POST['pago_final'])) {
+    error_reporting(0);
+    session_unset();
     die("<link rel='stylesheet' href='css/estilo.css'><div class='overlay'></div><div  class='error'>Gracias por su compra " . $_SESSION['usuario'] . "<a href='index.php'>Volver a iniciar sesión</a></div>");
+}
+if (!isset($_SESSION['usuario'])) {
+    die("<link rel='stylesheet' href='css/estilo.css'><div class='overlay'></div><div  class='error'>Error - debe <a href='index.php'>identificarse</a></div>");
 }
 ?>
 <!DOCTYPE html>
@@ -26,8 +31,10 @@ if (isset($_POST['pago_final'])) {
                 $total = 0;
                 foreach ($_SESSION['lista'] as $value) {
                     $split = explode(" | ", $value);
-                    $total += floatval($split[2]);
-                    echo "<div>$value</div>";
+                    $code = $split[0];
+                    $total_unico = floatval($split[2]) * intval($_SESSION['listaUnidades'][$code]);
+                    $total += $total_unico;
+                    echo "<div>$value x " . $_SESSION['listaUnidades'][$code] . "</div>";
                 }
                 echo "</div><div class='total'><p>Total: $total €</p></div>";
             ?>

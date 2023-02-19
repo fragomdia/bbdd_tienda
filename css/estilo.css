@@ -55,12 +55,12 @@ legend {
 }
 .productos {
     background-color: lightgray;
-    width: 30%;
+    width: 58%;
     margin: 0;
 }
 .cesta {
     background-color: rgb(103, 165, 103);
-    width: 60%;
+    width: 42%;
     margin: 0;
     display: flex;
     flex-direction: column;
